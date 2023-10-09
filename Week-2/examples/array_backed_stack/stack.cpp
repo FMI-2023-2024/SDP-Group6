@@ -23,7 +23,7 @@ template<typename T>
 void Stack<T>::copy(const Stack<T>& other) {
     this->size = other.size;
     this->capacity = other.capacity;
-    this->elements = new T[capacity];
+    this->elements = new T[this->capacity];
     
     memcpy(this->elements, other.elements, this->size * sizeof(T));
 }
@@ -37,14 +37,14 @@ Stack<T>::Stack(size_t capacity) {
     
 template<typename T>
 Stack<T>::Stack(const Stack<T>& other) {
-    copy(other);
+    this->copy(other);
 }
  
 template<typename T>   
 Stack<T>& Stack<T>::operator=(const Stack<T>& other) {
     if(this != &other) {
-        clear();
-        copy(other);
+        this->clear();
+        this->copy(other);
     }
     
     return *this;
@@ -53,30 +53,30 @@ Stack<T>& Stack<T>::operator=(const Stack<T>& other) {
 
 template<typename T>
 Stack<T>::~Stack() {
-    clear();
+    this->clear();
 }
 
 template<typename T>
 void Stack<T>::Push(const T& element) {
-    if (size == capacity) {
-        this->scale(capacity * 2);
+    if (this->size == this->capacity) {
+        this->scale(this->capacity * 2);
     }
 
-    this->elements[size++] = element;
+    this->elements[this->size++] = element;
 }
 
 template<typename T>
 T Stack<T>::Pop() {
-    if ((size-1) == capacity / 2) {
-        this->scale(capacity / 2);
+    if ((this->size-1) == this->capacity / 2) {
+        this->scale(this->capacity / 2);
     }
 
-    return this->elements[size--];
+    return this->elements[this->size--];
 }
 
 template<typename T>
 T Stack<T>::Peek() const {
-    return this->elements[size];
+    return this->elements[this->size];
 }
     
 template<typename T>

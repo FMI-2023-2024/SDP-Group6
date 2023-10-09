@@ -41,14 +41,14 @@ Stack<T>::Stack() {
 template<typename T>
 Stack<T>::Stack(const Stack<T>& other) {
     this->size = 0;
-    copy(this->head, other.head);
+    this->copy(this->head, other.head);
 }
  
 template<typename T>   
 Stack<T>& Stack<T>::operator=(const Stack<T>& other) {
     if(this != &other) {
-        clear();
-        copy(this->head, other.head);
+        this->clear();
+        this->copy(this->head, other.head);
     }
     
     return *this;
@@ -57,7 +57,7 @@ Stack<T>& Stack<T>::operator=(const Stack<T>& other) {
 
 template<typename T>
 Stack<T>::~Stack() {
-    clear();
+    this->clear();
 }
 
 template<typename T>
