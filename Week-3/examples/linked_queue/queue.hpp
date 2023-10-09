@@ -1,3 +1,6 @@
+#ifndef _QUEUE_HPP
+#define _QUEUE_HPP
+
 #include<iostream>
 
 template<typename T>
@@ -35,3 +38,4 @@ public:
     friend std::ostream& operator<<(std::ostream& out, const Queue<E>& queue);
 };
 
+#endif

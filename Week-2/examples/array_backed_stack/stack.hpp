@@ -1,3 +1,6 @@
+#ifndef _STACK_HPP
+#define _STACK_HPP
+
 #include <iostream>
 
 template<typename T>
@@ -28,3 +31,5 @@ public:
     template<typename E>
     friend std::ostream& operator<<(std::ostream& out, const Stack<E>& stack);
 };
+
+#endif
