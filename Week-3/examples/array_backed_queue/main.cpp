@@ -1,5 +1,5 @@
 #include<iostream>
-#include "queue.cpp"
+#include "queue.hpp"
 
 int main()
 {
